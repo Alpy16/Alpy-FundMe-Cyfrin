@@ -4,6 +4,7 @@ out = "out"
 libs = ["lib"]
 test = "test"
 script = "script"
+auto_detect_remappings = true
 
 remappings = [
   'forge-std/=lib/forge-std/src/',

@@ -1,5 +1,6 @@
 # Solidity / Foundry
-lib/
+# lib/   # commented out so forge-std is committed
+
 out/
 broadcast/
 cache/
