@@ -1,0 +1,16 @@
+# Solidity / Foundry
+lib/
+out/
+broadcast/
+cache/
+.gas-snapshot
+
+# Node / JS
+node_modules/
+alchemy-demo/
+
+# Env variables
+.env
+
+# Mac OS
+.DS_Store
