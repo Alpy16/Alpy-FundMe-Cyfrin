@@ -3,7 +3,9 @@
 [![Foundry](https://img.shields.io/badge/Forged%20with-Foundry-blue)](https://github.com/foundry-rs/foundry)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-About
+About,
+
+
 Alpy FundMe is a decentralized crowdfunding smart contract built on Ethereum.
 This project was developed as part of the Cyfrin Updraft Solidity and Foundry bootcamp.
 
