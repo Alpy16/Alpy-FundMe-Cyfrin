@@ -3,7 +3,14 @@
 [![Foundry](https://img.shields.io/badge/Forged%20with-Foundry-blue)](https://github.com/foundry-rs/foundry)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Alpy FundMe is a decentralized crowdfunding smart contract built on Ethereum, following the Cyfrin Updraft curriculum. It enables users to contribute ETH to the contract, with a minimum contribution enforced in USD terms via Chainlink price feeds. The contract owner can withdraw the accumulated funds.
+About
+Alpy FundMe is a decentralized crowdfunding smart contract built on Ethereum.
+This project was developed as part of the Cyfrin Updraft Solidity and Foundry bootcamp.
+
+Users can fund the contract with ETH, and the contract owner can withdraw accumulated funds.
+ETH to USD conversion is powered by Chainlink price feeds.
+
+
 
 Features:  
 - Fund contract with ETH  
