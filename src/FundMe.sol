@@ -23,17 +23,16 @@ contract FundMe {
     }
 
     function cheaperWithdraw() public onlyOwner {
-    address[] memory funders = s_funders;
-    for (uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++) {
-        address funder = funders[funderIndex];
-        s_addressToAmountFunded[funder] = 0;
+        address[] memory funders = s_funders;
+        for (uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++) {
+            address funder = funders[funderIndex];
+            s_addressToAmountFunded[funder] = 0;
+        }
+        s_funders = new address[](0);
+
+        (bool success,) = payable(msg.sender).call{value: address(this).balance}("");
+        require(success, "Call failed");
     }
-    s_funders = new address[](0);
-
-    (bool success, ) = payable(msg.sender).call{value: address(this).balance}("");
-    require(success, "Call failed");
-}
-
 
     function withdraw() public onlyOwner {
         for (uint256 i = 0; i < s_funders.length; i++) {
@@ -41,7 +40,7 @@ contract FundMe {
             s_addressToAmountFunded[funder] = 0;
         }
         s_funders = new address[](0);
-        (bool success, ) = payable(msg.sender).call{value: address(this).balance}("");
+        (bool success,) = payable(msg.sender).call{value: address(this).balance}("");
         require(success, "Call failed");
     }
 
@@ -50,7 +49,7 @@ contract FundMe {
     }
 
     function getPrice() public view returns (uint256) {
-        (, int256 price, , , ) = s_priceFeed.latestRoundData();
+        (, int256 price,,,) = s_priceFeed.latestRoundData();
         return uint256(price * 1e10); // 8 to 18 decimals
     }
 
@@ -80,6 +79,4 @@ contract FundMe {
     function getPriceFeed() public view returns (AggregatorV3Interface) {
         return s_priceFeed;
     }
-
-    
 }

@@ -7,25 +7,19 @@ import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
 import {FundFundMe, WithdrawFundMe} from "../../script/Interactions.s.sol";
 
 contract InteractionsTest is Test {
-    
     FundMe fundMe;
-    
+
     address USER = makeAddr("user");
     uint256 constant SEND_VALUE = 0.1 ether;
     uint256 constant STARTING_BALANCE = 10 ether;
 
-
-
-    function setUp () external {
+    function setUp() external {
         DeployFundMe deploy = new DeployFundMe();
         fundMe = deploy.run();
         vm.deal(USER, STARTING_BALANCE);
-        
     }
-    
 
     function testUserCanFundInteractions() public {
-
         FundFundMe fundFundMe = new FundFundMe();
         fundFundMe.fundFundMe(address(fundMe));
 
@@ -33,10 +27,5 @@ contract InteractionsTest is Test {
         withdrawFundMe.withdrawFundMe(address(fundMe));
 
         assert(address(fundMe).balance == 0);
-    
-
-
-        
-
-}
+    }
 }
